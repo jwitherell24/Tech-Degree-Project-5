@@ -1,0 +1,21 @@
+{% block button %}
+    <a class="add-project-btn" href="{{ url_for('create_project') }}" alt="Create Project">
+        <i class="fas fa-plus"></i>
+        Project
+    </a>
+{% endblock %} 
+
+{% block content %} 
+    <section id="project-cards">
+        {% for project in projects %}
+            <a href="{{ url_for('project', id=project.id) }}">
+                <div class="card">
+                    <h2>{{ project.title }}</h2>
+                    <h3>{{ project.date_finished }}</h3>
+                    <h4>{{ project.skills_used }}</h4>
+                    <p>{{ project.description }}</p>
+                </div>
+            </a>
+        {% endfor %} 
+    </section>
+{% endblock %}

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Project Portfolio</title>
+        <meta name="description" content="A portfolio of my completed projects.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/static/css/styles.css">
+    </head>
+
+    <body>
+        <section class="main-header">
+            <a href="{{ url_for('index') }}">
+                <h1 class="header">
+                    <i class="fas fa-paw"></i>
+                    Project Portfolio
+                </h1>
+            </a>
+            {% block button %}
+            {% endblock %} 
+        </section>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
