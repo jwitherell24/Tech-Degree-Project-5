@@ -15,7 +15,8 @@ def create_project():
         new_project = Project(title=request.form["title"],
                               date_finished=request.form["date finished"],
                               skills_used=request.form["skills used"],
-                              description=request.form["description"])
+                              description=request.form["description"],
+                              github_link=request.form["github link"])
         db.session.add(new_project)
         db.session.commit()
         return redirect(url_for("index"))
@@ -36,6 +37,7 @@ def edit_project(id):
         project.date_finished = request.form["date finished"]
         project.skills_used = request.form["skills used"]
         project.description = request.form["description"]
+        project.github_link = request.form["github link"]
         db.session.commit()
         return redirect(url_for("index"))
     return render_template("editproject.html", project=project)
