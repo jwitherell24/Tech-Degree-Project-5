@@ -51,6 +51,11 @@ def delete_project(id):
     return redirect(url_for("index"))
 
 
+@app.errorhandler(404)
+def not_found(error):
+    return render_template("404.html", msg=error), 404
+
+
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
