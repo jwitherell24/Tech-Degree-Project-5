@@ -10,33 +10,22 @@
 {% block content %} 
     <section id="form">
         <form action="{{ url_for('create_project') }}" method="POST">
-            <div class="columns">
-                <div class="col1">
-                    <div class="form-container">
                         <label for="title">Title</label>
-                        <input id="title", name="title" type="string" placeholder="Project Title">
-                    </div>
-                    <div class="form-container">
+                        <input id="title", name="title" type="text" placeholder="Project Title" required>
                         <label for="date">Date Finished</label>
-                        <input id="date" name="date" type="date" placeholder="March 15, 2022">
-                    </div>
-                    <div class="form-container">
+                        <input id="date" name="date" type="date" required>
                         <label for="description">Description</label>
-                        <input id="description" name="description" type="text" placeholder="A collection of projects">
-                    </div>
-                </div>
-                <div class="col2">
-                    <div class="form-container">
+                        <textarea id="description" name="description" cols="30" rows="20" placeholder="Description" required></textarea>
                         <label for="skills">Skills Used</label>
-                        <input id="skills" name="skills" type="text" placeholder="Python">
-                    </div>
-                    <div class="form-container">
-                        <label for="url"><i class="fas fa-camera"></i>GitHub Link</label>
-                        <input id="url" name="url" type="text" placeholder="GitHub Link">
-                    </div>
+                        <p>Separate skills with a comma</p>
+                        <textarea id="skills" name="skills" cols="30" rows="20" placeholder="Skill, Skill" required></textarea>
+                        <label for="url">GitHub Link</label>
+                        <input id="url" name="url" type="url" placeholder="GitHub Link" required>
+                <div id="form-buttons">
+                    <button type="reset">Cancel</button>
+                    <button type="submit">Submit</button>
                 </div>
             </div>
         </form>
     </section>
-    <script src="/static/css/styles.css"></script>
 {% endblock %} 
