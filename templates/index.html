@@ -3,21 +3,24 @@
 {% block button %}
     <a class="add-project-btn" href="{{ url_for('create_project') }}" alt="Create Project">
         <i class="fas fa-plus"></i>
-        Project
+        Add Project
     </a>
 {% endblock %} 
 
 {% block content %} 
-    <section id="project-cards">
+    <section id="projects">
+        <h2>Projects</h2>
         {% for project in projects %}
-            <a href="{{ url_for('project', id=project.id) }}">
-                <div class="card">
-                    <h2>{{ project.title }}</h2>
-                    <h3>{{ project.skills_used }}</h3>
-                    <p>{{ project.description }}</p>
-                    <a href="{{ project.github_link }}"></a>
-                </div>
+        <div id="project-list">
+            <div id="project1" class="a-project">
+            <h3><a href="{{ url_for('project', id=project.id) }}">{{ project.title }}</a></h3>
+            <a href="{{ project.github_link }}" class="github-btn">
+                View on GitHub    
             </a>
+                <p>Skills: {{ project.skills_used }}</p>
+                <p>{{ project.description }}</p>
+            </div>
+        </div>
         {% endfor %} 
     </section>
 {% endblock %}

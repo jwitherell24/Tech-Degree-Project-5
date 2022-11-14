@@ -225,7 +225,7 @@ Projects
 *******/
 
 #projects {
-    background-color: var(--secondary);
+    background-color: rgb(255, 255, 255);
     position: relative;
     text-align: center;
     padding: 5%;
