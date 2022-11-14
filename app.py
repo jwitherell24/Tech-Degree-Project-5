@@ -14,9 +14,9 @@ def index():
 def create_project():
     if request.form:
         split_date = request.form["date"].split("-")
-        month = int(split_date[0])
-        day = int(split_date[1])
-        year = int(split_date[2])
+        year = int(split_date[0])
+        month = int(split_date[1])
+        day = int(split_date[2])
         clean_date = datetime.date(year, month, day)
         new_project = Project(title=request.form["title"],
                               date_finished=clean_date,
@@ -39,8 +39,13 @@ def project(id):
 def edit_project(id):
     project = Project.query.get_or_404(id)
     if request.form:
+        split_date = request.form["date"].split("-")
+        year = int(split_date[0])
+        month = int(split_date[1])
+        day = int(split_date[2])
+        clean_date = datetime.date(year, month, day)
         project.title = request.form["title"]
-        project.date_finished = request.form["date"]
+        project.date_finished = clean_date 
         project.skills_used = request.form["skills"]
         project.description = request.form["description"]
         project.github_link = request.form["url"]

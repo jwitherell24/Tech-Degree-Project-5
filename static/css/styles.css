@@ -2,10 +2,10 @@
 Colors
 *******/
 :root {
-    --primary-text: #6811c5;
-    --secondary-text: #d32121;
+    --primary-text: #000000;
+    --secondary-text: #2c2222;
     --primary: #475c7a;
-    --secondary: #fcbb6d;
+    --secondary: #3ac717;
     --accent: #d8737f;
     --white:  #fff;
 }

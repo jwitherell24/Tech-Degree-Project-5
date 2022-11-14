@@ -1,8 +1,8 @@
 {% extends "layout.html" %} 
 
 {% block button %}
-    <a class="add-project-btn" href="{{ url_for('add_project') }}" alt="Add Project">
-        <i class="fa-sharp fa-solid fa-circle-info"></i>
+    <a class="add-project-btn" href="{{ url_for('create_project') }}" alt="Add Project">
+        <i class="fas fa-plus"></i>
         Add Project
     </a>
 {% endblock %} 
@@ -16,7 +16,7 @@
         <div id="left-col">
            <div>
                 <h2>Date Finished</h2>
-                <p>{{ project.date_finished</p>
+                <p>{{ project.date_finished }}</p>
            </div>
            <div>
                 <h2>Description</h2>
@@ -26,10 +26,12 @@
         <div id="right-col">
             <div>
                 <h2>Skills Practiced</h2>
-                <p>{{ project.skills_used</p>
+                <p>{{ project.skills_used }}</p>
             </div>
-            <div>GitHub Link</div>
-            <p>{{ project.github_link }}</p>
+            <div>
+                <h2>GitHub Link</h2>
+                <p>{{ project.github_link }}</p>
+            </div>
         </div>
     </section>
     <section id="edit-delete">

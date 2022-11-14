@@ -1,3 +1,5 @@
+{% extends "layout.html" %}
+
 {% block button %} 
     <a class="back-btn" href="{{ url_for('index') }}">
         <i class="fas fa-caret-left"></i>
@@ -6,35 +8,26 @@
 {% endblock %}
 
 {% block content %} 
+    <section class="header">
+        <h2>Edit Project</h2>
+    </section>
     <section id="form">
-        <form action="{{url_for('edit_project', id=pet.id) }}" method="POST">
-            <div class="columns">
-                <div class="col1">
-                    <div class="form-container">
-                        <label for="title">Name</label>
-                        <input id="title" name="title" type="string" placeholder="Project Title" value="{{ project.title }}">
-                    </div>
-                    <div class="form-container">
-                        <label for="date">Date Finished</label>
-                        <input id="date" name="date" type="date" placeholder="March 15, 2022" value="{{ project.date_finished }}">
-                    </div>
-                    <div class="form-container">
-                        <label for="description">Description</label>
-                        <input id="description" name="description" type="text" placeholder="A collection of projects" value="{{ project.description }}">
-                    </div>
-                </div>
-                <div class="col2">
-                    <div class="form-container">
-                        <label for="skills">Skills Used</label>
-                        <input id="skills" name="skills" type="text" placeholder="Python" value="{{ project.skills_used }}">
-                    </div>
-                    <div class="form-container">
-                        <label for="url"><i class="fas fa-camera"></i>GitHub Link</label>
-                        <input id="url" name="url" type="text" placeholder="GitHub Link" value="{{ project.git_hub }}">
-                    </div>
-                </div>
+        <form action="{{url_for('edit_project', id=project.id) }}" method="POST">
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text" placeholder="Project Title" value="{{ project.title }}" required>
+            <label for="date">Date Finished</label>
+            <input id="date" name="date" type="date" value="{{ project.date_finished }}" required>
+            <label for="description">Description</label>
+            <textarea id="description" name="description" cols="30" rows="20" placeholder="Description" required>{{ project.description }}</textarea>
+            <label for="skills" id="skills-label">Skills Used</label>
+            <p>Separate skills with a comma</p>
+            <textarea id="skills" name="skills" cols="30" rows="20" placeholder="Skill, Skill" required>{{ project.skills_used }}</textarea>
+            <label for="url"></i>GitHub Link</label>
+            <input id="url" name="url" type="url" placeholder="GitHub Link" value="{{ project.github_link }}">
+            <div>
+                <button type="reset">Cancel</button>
+                <button type="submit">Submit</button>
             </div>
         </form>
     </section>
-    <script src="/static/css/styles.css"></script>
 {% endblock %}

@@ -8,23 +8,25 @@
 {% endblock %}
 
 {% block content %} 
+    <section class="header">
+        <h2>New Project Information</h2>
+    </section>
     <section id="form">
         <form action="{{ url_for('create_project') }}" method="POST">
-                        <label for="title">Title</label>
-                        <input id="title", name="title" type="text" placeholder="Project Title" required>
-                        <label for="date">Date Finished</label>
-                        <input id="date" name="date" type="date" required>
-                        <label for="description">Description</label>
-                        <textarea id="description" name="description" cols="30" rows="20" placeholder="Description" required></textarea>
-                        <label for="skills">Skills Used</label>
-                        <p>Separate skills with a comma</p>
-                        <textarea id="skills" name="skills" cols="30" rows="20" placeholder="Skill, Skill" required></textarea>
-                        <label for="url">GitHub Link</label>
-                        <input id="url" name="url" type="url" placeholder="GitHub Link" required>
-                <div id="form-buttons">
-                    <button type="reset">Cancel</button>
-                    <button type="submit">Submit</button>
-                </div>
+            <label for="title">Title</label>
+            <input id="title", name="title" type="text" placeholder="Project Title" required>
+            <label for="date">Date Finished</label>
+            <input id="date" name="date" type="date" required>
+            <label for="description">Description</label>
+            <textarea id="description" name="description" cols="30" rows="20" placeholder="Description" required></textarea>
+            <label for="skills" id="skills-label">Skills Used</label>
+            <p>Separate skills with a comma</p>
+            <textarea id="skills" name="skills" cols="30" rows="20" placeholder="Skill, Skill" required></textarea>
+            <label for="url">GitHub Link</label>
+            <input id="url" name="url" type="url" placeholder="GitHub Link" required>
+            <div>
+                <button type="reset">Cancel</button>
+                <button type="submit">Submit</button>
             </div>
         </form>
     </section>
