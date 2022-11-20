@@ -1,26 +1,67 @@
 {% extends "layout.html" %}
 
 {% block button %}
-    <a class="add-project-btn" href="{{ url_for('create_project') }}" alt="Create Project">
+    <a class="add-project-btn" href="{{ url_for('create_project') }}" alt="Add Project">
         <i class="fas fa-plus"></i>
-        Add Project
+        Add Project 
     </a>
-{% endblock %} 
+{% endblock %}
 
-{% block content %} 
+{% block content %}
+    <section class="header">
+        <h1>Python Developer</h1>
+        <p>"Aspire to get better each day through the aggregation of marginal gains." - ChooseFi</p>
+    </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I'm currently looking to begin a career in Python development.
+            My other interests include personal finance, baseball, and many other
+            numbers/analytics-based subjects. 
+        </p>
+        <div id="triangle1"></div>
+        <div id="triangle2"></div>
+    </section>
+    <section id="skills">
+        <i class="fa-solid fa-code-branch"></i>
+        <h2>Skills</h2>
+        <ul>
+            <li>Python</li>
+            <li>Flask</li>
+            <li>SQLAlchemy</li>
+            <li>Object-Oriented Programming</li>
+            <li>HTML</li>
+            <li>GitHub</li>
+            <li>Visual Studio Code</li>
+        </ul>
+    </section>
     <section id="projects">
+        <div id="triangle3"></div>
+        <i class="fa-solid fa-code"></i>
         <h2>Projects</h2>
         {% for project in projects %}
         <div id="project-list">
             <div id="project1" class="a-project">
-            <h3><a href="{{ url_for('project', id=project.id) }}">{{ project.title }}</a></h3>
+            <h3><a href="{{ url_for('projects', id=project.id) }}">{{ project.title }}</a></h3>
             <a href="{{ project.github_link }}" class="github-btn">
                 View on GitHub    
             </a>
                 <p>Skills: {{ project.skills_used }}</p>
                 <p>{{ project.description }}</p>
             </div>
-        </div>
-        {% endfor %} 
+        {% endfor %}
+        <div id="triangle4"></div>
+    </section>
+    <section id="contact">
+        <i class="fa-sharp fa-solid fa-paper-plane-top"></i>
+        <h2>Contact Me</h2>
+        <p>
+            <i class="fa-solid fa-envelope"></i>
+            witherellj24@gmail.com
+        </p>
+        <p>
+            <i class="fa-solid fa-phone"></i>
+            (616)406-4252
+        </p>
     </section>
 {% endblock %}

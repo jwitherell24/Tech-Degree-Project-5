@@ -2,10 +2,10 @@
 Colors
 *******/
 :root {
-    --primary-text: #000000;
-    --secondary-text: #2c2222;
+    --primary-text: #51475c;
+    --secondary-text: #ab6c82;
     --primary: #475c7a;
-    --secondary: #3ac717;
+    --secondary: #fcbb6d;
     --accent: #d8737f;
     --white:  #fff;
 }
@@ -225,7 +225,7 @@ Projects
 *******/
 
 #projects {
-    background-color: rgb(255, 255, 255);
+    background-color: var(--secondary);
     position: relative;
     text-align: center;
     padding: 5%;

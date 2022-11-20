@@ -9,9 +9,21 @@ def index():
     projects = Project.query.all()
     return render_template("index.html", projects=projects)
 
+@app.route("/skills")
+def skills():
+    projects = Project.query.all()
+    return render_template("skills.html", projects=projects)
+
+
+@app.route("/projects/about")
+def about():
+    projects = Project.query.all()
+    return render_template("about.html", projects=projects)
+
 
 @app.route("/projects/new", methods=["GET", "POST"])
 def create_project():
+    projects = Project.query.all()
     if request.form:
         split_date = request.form["date"].split("-")
         year = int(split_date[0])
@@ -26,17 +38,18 @@ def create_project():
         db.session.add(new_project)
         db.session.commit()
         return redirect(url_for("index"))
-    return render_template("createproject.html")
-
+    return render_template("createproject.html", projects=projects)
 
 @app.route("/projects/<id>")
-def project(id):
+def projects(id):
+    projects = Project.query.all()
     project = Project.query.get_or_404(id)
-    return render_template("project.html", project=project)
+    return render_template("projects.html", projects=projects, project=project)
 
 
 @app.route("/projects/<id>/edit", methods=["GET", "POST"])
 def edit_project(id):
+    projects = Project.query.all()
     project = Project.query.get_or_404(id)
     if request.form:
         split_date = request.form["date"].split("-")
@@ -51,7 +64,7 @@ def edit_project(id):
         project.github_link = request.form["url"]
         db.session.commit()
         return redirect(url_for("index"))
-    return render_template("editproject.html", project=project)
+    return render_template("editproject.html", projects=projects, project=project)
 
 
 @app.route("/projects/<id>/delete")
@@ -64,7 +77,8 @@ def delete_project(id):
 
 @app.errorhandler(404)
 def not_found(error):
-    return render_template("404.html", msg=error), 404
+    projects = Project.query.all()
+    return render_template("404.html", msg=error, projects=projects), 404
 
 
 if __name__ == "__main__":
