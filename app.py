@@ -9,6 +9,7 @@ def index():
     projects = Project.query.all()
     return render_template("index.html", projects=projects)
 
+
 @app.route("/skills")
 def skills():
     projects = Project.query.all()
@@ -39,6 +40,7 @@ def create_project():
         db.session.commit()
         return redirect(url_for("index"))
     return render_template("createproject.html", projects=projects)
+
 
 @app.route("/projects/<id>")
 def projects(id):
@@ -85,3 +87,4 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()
     app.run(debug=True, port=8000, host="127.0.0.1")
+    

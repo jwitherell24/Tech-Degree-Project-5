@@ -5,6 +5,7 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project_portfolio.db"
 db = SQLAlchemy(app)
 
+
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column("Project Title", db.String())
@@ -20,3 +21,4 @@ class Project(db.Model):
                 Skills Used: {self.skills_used}
                 Description: {self.description}
                 GitHub Link: {self.github_link}"""
+                
